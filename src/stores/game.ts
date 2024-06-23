@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { useCelebrityStore } from './celebrity'
 import type { Hint } from '../types'
+import type { Celebrity } from '../types'
 
 export const useGameStore = defineStore('game', {
   state: () => ({
@@ -17,23 +18,24 @@ export const useGameStore = defineStore('game', {
       const celebrityStore = useCelebrityStore()
       celebrityStore.getRandomCelebrity()
     },
-    makeAttempt(guess: Partial<Hint>) {
+    async makeAttempt(name: string) {
       const celebrityStore = useCelebrityStore()
       if (!celebrityStore.celebrity) return
-    
+
+      const guess = await celebrityStore.getTryCelebrity(name)
+      if (!guess) return
+
       this.attempts--
-      
+
       const hint: Hint = {
-        name: guess.name || '',
         correct: guess.name?.toLowerCase() === celebrityStore.celebrity.name.toLowerCase(),
-        birthdate: guess.birthdate === celebrityStore.celebrity.birthdate,
+        age: guess.age === celebrityStore.celebrity.age,
         gender: guess.gender === celebrityStore.celebrity.gender,
         occupation: guess.occupation === celebrityStore.celebrity.occupation,
         nationality: guess.nationality === celebrityStore.celebrity.nationality
       }
-      
+
       this.hints.push(hint)
     }
-    
   }
 })

@@ -10,11 +10,14 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import Button from '../components/Button.vue'
 import { ref } from 'vue'
 
+const router = useRouter()
+
 const handleSoloClick = () => {
-  console.log('Button "Solo" clicked!')
+  router.push('/solo')
 }
 </script>
 
