@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useGameStore } from '../stores/game'
-import CelebritiesDropdown from '@/components/CelebritiesDropdown.vue';
+import SearchBar from '@/components/SearchBar.vue'
 
 const game = useGameStore()
 game.initializeGame()
@@ -13,6 +13,10 @@ const makeGuess = async () => {
     await game.makeAttempt(guess.value)
     guess.value = ''
   }
+}
+
+const updateQuery = (query: string) => {
+  guess.value = query
 }
 </script>
 
@@ -34,9 +38,7 @@ const makeGuess = async () => {
         </li>
       </ul>
     </div>
-
-    <input v-model="guess" placeholder="Enter your guess" />
+    <SearchBar :searchQuery="guess" :updateQuery="updateQuery" />
     <button @click="makeGuess">Submit Guess</button>
-    <CelebritiesDropdown></CelebritiesDropdown>
   </div>
 </template>

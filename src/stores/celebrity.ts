@@ -5,7 +5,7 @@ import type { Celebrity } from '../types'
 export const useCelebrityStore = defineStore('celebrity', {
   state: () => ({
     celebrity: null as Celebrity | null,
-    celebrities: [] as Celebrity[]
+    celebrities: [] as string[]
   }),
   actions: {
     async getRandomCelebrity() {
@@ -27,11 +27,11 @@ export const useCelebrityStore = defineStore('celebrity', {
     },
     async getCelebrities() {
       try {
-        const response = await axios.get<Celebrity[]>(`http://127.0.0.1:5000/celebrities`)
-        return this.celebrities = response.data
+        const response = await axios.get<string[]>(`http://127.0.0.1:5000/celebrities`)
+        this.celebrities = response.data
       } catch (error) {
         console.error(error)
-        return []
+        this.celebrities = []
       }
     }
   }
