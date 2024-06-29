@@ -1,17 +1,22 @@
-export type  Celebrity = {
+import { Gender } from './types/gender'
+
+export type Celebrity = {
   name: string
-  birth: string
-  gender: string
+  age: string
+  gender: Gender
   occupation: string
   nationality: string
   image: string
 }
 
+export type Try = {
+  name: string
+}
+
 export type Hint = {
   correct: boolean
-  name: string
-  birthdate: string
-  gender: string
-  occupation: string
-  nationality: string
+  age: boolean
+  gender: boolean
+  occupation: boolean
+  nationality: boolean
 }

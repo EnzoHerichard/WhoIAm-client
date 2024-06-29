@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <img src="https://placehold.co/100" alt="Logo" width="100px" />
+    <img src="../assets/logo-white.png" alt="Logo" width="100px" />
     <h1>Commence par choisir un mode de jeu...</h1>
     <div class="buttons">
       <Button text="Solo" color="black" hoverColor="blue" @click="handleSoloClick" width="200px" />
@@ -10,11 +10,14 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import Button from '../components/Button.vue'
 import { ref } from 'vue'
 
+const router = useRouter()
+
 const handleSoloClick = () => {
-  console.log('Button "Solo" clicked!')
+  router.push('/solo')
 }
 </script>
 
