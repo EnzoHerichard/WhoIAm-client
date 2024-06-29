@@ -7,7 +7,7 @@ import { RouterLink } from 'vue-router'
     <ul>
       <li>
         <RouterLink to="/"
-          ><img src="https://placehold.co/40" width="40px" height="40px"
+          ><img src="../assets/logo-black.png" width="60px" height="60px" alt="logo"
         /></RouterLink>
       </li>
     </ul>
@@ -19,7 +19,6 @@ nav {
   background-color: white;
   color: black;
   padding: 1em;
-  position: fixed;
   width: 100%;
 }
 

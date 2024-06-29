@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <img src="https://placehold.co/100" alt="Logo" width="100px" />
+    <img src="../assets/logo-white.png" alt="Logo" width="100px" />
     <h1>Commence par choisir un mode de jeu...</h1>
     <div class="buttons">
       <Button text="Solo" color="black" hoverColor="blue" @click="handleSoloClick" width="200px" />

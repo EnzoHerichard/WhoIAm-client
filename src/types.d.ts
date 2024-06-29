@@ -1,7 +1,9 @@
-export type  Celebrity = {
+import { Gender } from './types/gender'
+
+export type Celebrity = {
   name: string
   age: string
-  gender: string
+  gender: Gender
   occupation: string
   nationality: string
   image: string
